@@ -22,13 +22,10 @@
     <div class="page-header no-gutters has-tab">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Basic Info</a>
+                <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Thông tin cơ bản</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#product-edit-option">Option Info</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#product-edit-description">Description</a>
+                <a class="nav-link" data-toggle="tab" href="#product-edit-description">Mô tả chi tiết</a>
             </li>
         </ul>
     </div>
@@ -47,11 +44,11 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="font-weight-semibold" asp-for="Price">Giá bán</label>
+                            <label class="font-weight-semibold" asp-for="Price">Giá thông thường</label>
                             <input type="text" class="form-control" asp-for="Price">
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="font-weight-semibold" asp-for="PriceDiscount">Discount</label>
+                            <label class="font-weight-semibold" asp-for="PriceDiscount">Giá giảm</label>
                             <input type="text" class="form-control" asp-for="PriceDiscount">
                         </div>
                     </div>
