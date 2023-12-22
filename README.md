@@ -1,4 +1,6 @@
-Website thương mại diện tử bán mặt hàng thời trang nam với tính năng cơ bản frontend-backend, sử dụng Framework ASP.Net và ngôn ngữ lập trình Javascript + C#
+Website thương mại diện tử bán mặt hàng thời trang nam với tính năng cơ bản frontend-backend, sử dụng Framework ASP.Net và ngôn ngữ lập trình Javascript + C# 
+Dự án này danh cho môn học Phát triển ứng dụng Thương Mại Điện Tử tại Đại Học UEH
+Lưu ý: Tên file là BookStore do ban đầu mình định làm web bán sách tuy nhiên sau khi hoàn thành gần hết các tính năng và làm giao diện thì mình thấy bán quần áo đẹp hơn hehe
 + Một số tính năng cơ bản người dùng: Xem hàng, mua hàng, giỏ hàng và thành toán stripe
 + Một số tính năng cho admin: quản lý tài khoản, đơn hàng, sản phẩm, cập nhật trạng thái
 + Mỗi tính năng đề có chức năng: thêm, sửa, xóa + bộ lọc
