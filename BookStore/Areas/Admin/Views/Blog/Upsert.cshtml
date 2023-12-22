@@ -1,0 +1,97 @@
+﻿@model Blog
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            @if (Model != null)
+            {
+                <span class="breadcrumb-item active">Thay đổi bài viết</span>
+            }
+            else
+            {
+                <span class="breadcrumb-item active">Tạo bài viết mới</span>
+            }
+        </nav>
+    </div>
+</div>
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="Id" hidden />
+    <input asp-for="ImageUrl1" hidden />
+    <div class="page-header no-gutters has-tab">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Nội dung bài viết</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content m-t-15">
+        <div class="tab-pane fade show active" id="product-edit-basic">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="font-weight-semibold" asp-for="Title">Tiêu đề</label>
+                        <input type="text" class="form-control" asp-for="Title">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Summary" class="font-weight-semibold"></label>
+                        <input type="text" asp-for="Summary" class="form-control"></input>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label class="font-weight-semibold" asp-for="ImageUrl1">Ảnh đại diện</label>
+                            <input name="file" type="file" class="form-control-file" />
+                            <span asp-validation-for="ImageUrl1" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="font-weight-semibold"></label>
+                        <textarea type="text" asp-for="Description" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+        <div class="m-b-15">
+            @if (Model != null)
+            {
+                <button class="btn btn-primary" type="submit">
+                    <i class="anticon anticon-save"></i>
+                    <span>Cập nhật thông tin</span>
+                </button>
+            }
+            else
+            {
+                <button class="btn btn-primary" type="submit">
+                    <i class="anticon anticon-save"></i>
+                    <span>Lưu</span>
+                </button>
+            }
+        </div>
+    </div>
+</form>
+@section Scripts
+{
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+    </script>
+    @{
+        <patial name="_ValidationScriptsPartial" />
+    }
+    <script src="~/Adminassets/vendors/select2/select2.min.js"></script>
+    <script src="~/Adminassets/js/pages/e-commerce-product-edit.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="~/Adminassets/summernote/summernote-bs4.js"></script>
+}

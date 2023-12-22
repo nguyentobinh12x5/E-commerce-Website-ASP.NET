@@ -1,0 +1,98 @@
+﻿@model Blog
+<!-- Blog Details Hero Begin -->
+<section class="spad" style="background: #f1f3f5; padding-top: 90px; padding-bottom: 125px;">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-9 text-center">
+                <div class="blog__hero__text">
+                    <h2>@Model.Title</h2>
+                    <ul>
+                        <li>By @Model.ApplicationUser.Name</li>
+                        <li>@Model.CreateDate.ToString("dd/MM/yyyy")</li>
+                        <li>8 Bình luận</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Details Section Begin -->
+<section class="spad">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="blog__details__content">
+                    <div class="blog__details__share">
+                        <span>Chia sẻ</span>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a></li>
+                            <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="blog__details__text">
+                        @Html.Raw(Model.Description)
+                    </div>
+                    <div class="blog__details__option">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="blog__details__author">
+                                    <div class="blog__details__author__pic">
+                                        <img src="~/img/BinhAvatar.jpg" alt="">
+                                    </div>
+                                    <div class="blog__details__author__text">
+                                        <h5>@Model.ApplicationUser.Name</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="blog__details__tags">
+                                    <a href="#">#Fashion</a>
+                                    <a href="#">#Trending</a>
+                                    <a href="#">#2023</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog__details__btns">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <a href="" class="blog__details__btns__item">
+                                    <p><span class="arrow_left"></span> Bài viết trước</p>
+                                    <h5>Bộ sưu tập thu đông của Coolmate sắp được ra mắt</h5>
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <a href="" class="blog__details__btns__item blog__details__btns__item--next">
+                                    <p>Bài viết tiếp theo <span class="arrow_right"></span></p>
+                                    <h5>Quyền góp 50 tỷ cho trẻ em vùng cao từ việc bán sản phẩm</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog__details__comment">
+                        <h4>Để lại bình luận của bạn bên dưới</h4>
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4">
+                                    <input type="text" placeholder="Name">
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <input type="text" placeholder="Email">
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <input type="text" placeholder="Phone">
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <textarea placeholder="Comment"></textarea>
+                                    <button type="submit" class="site-btn">Bình luận</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

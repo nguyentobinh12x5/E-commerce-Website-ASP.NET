@@ -1,0 +1,100 @@
+﻿@model ShoppingCartVM
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Shopping Cart</h4>
+                    <div class="breadcrumb__links">
+                        <a href="./index.html">Home</a>
+                        <a href="./shop.html">Shop</a>
+                        <span>Shopping Cart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Shopping Cart Section Begin -->
+<form method="post">
+<section class="shopping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="shopping__cart__table">
+                    <table class="text-center">
+                        <thead>
+                            <tr>
+                                <th>Mô tả sản phẩm</th>
+                                <th>Sô lượng</th>
+                                <th>Giá</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                @foreach( var item in Model.ShoppingCartList)
+                                {
+                                    <tr>
+                                        <td class="product__cart__item">
+                                            <div class="product__cart__item__pic">
+                                                <img src="@item.Product.ImageUrl1" alt="" width="90">
+                                            </div>
+                                            <div class="product__cart__item__text">
+                                                <h6>@item.Product.Title</h6>
+                                                <h5>@item.Product.PriceDiscount.ToString("#,##0") VNĐ</h5>
+                                            </div>
+                                        </td>
+                                        <td class="quantity__item">
+                                            <div>
+                                                <a asp-action="Minus" asp-route-cartId="@item.Id" class="text-black"><i class="bi bi-chevron-left"></i></a>
+                                                <span class="mx-2">@item.Count</span>
+                                                <a asp-action="Plus" asp-route-cartId="@item.Id" class="text-black"><i class="bi bi-chevron-right"></i></a>
+                                            </div>
+                                        </td>
+                                        <td class="cart__price">@((item.Count * item.Product.PriceDiscount).ToString("#,##0")) VNĐ</td>
+                                        <td class="cart__close">
+                                            <a asp-action="Remove" asp-route-cartId="@item.Id">
+                                                <i class="fa fa-close bg-light"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="continue__btn">
+                                <a asp-area="Customer" asp-controller="Home" asp-action="Index"><small>Tiếp Tục Mua Sắm</small></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="continue__btn update__btn">
+                            <a href="#"><i class="fa fa-spinner"></i>Cập nhật giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cart__discount">
+                    <h6>Mã giảm giá</h6>
+                    <form action="#">
+                            <input type="text" placeholder="Mã giảm giá" class="py-2 px-4 rounded border border-secondary-subtle">
+                        <button type="submit" class="btn btn-primary py-2 px-4 text-uppercase">Apply</button>
+                    </form>
+                </div>
+                <div class="cart__total bg-light">
+                    <h6>Giỏ hàng</h6>
+                    <ul>
+                            <li>Tạm tính <span class="text-black">@Model.OrderHeader.OrderTotal.ToString("#,##0") VNĐ</span></li>
+                            <li>Tổng <span class="text-black">@Model.OrderHeader.OrderTotal.ToString("#,##0") VNĐ</span></li>
+                    </ul>
+                        <a asp-action="Summary" class="primary-btn">Thanh Toán</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</form>

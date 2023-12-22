@@ -1,0 +1,63 @@
+﻿@page
+@model ExternalLoginModel
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-5">
+            <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h3 class="border-bottom pb-3 mb-4 text-secondary text-center">Đăng ký</h3>
+                <p>
+                    Bạn đã đăng nhập thành công với  <strong>@Model.ProviderDisplayName</strong>.
+                    Tuy nhiên bạn cần điền thêm thông tin để hoàn tất quy trình đăng ký
+                </p>
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="email" placeholder="Email" />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Name" class="form-control" autocomplete="email" placeholder="Họ và tên" />
+                    <label asp-for="Input.Name" class="form-label"></label>
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Number" class="form-control" autocomplete="email" placeholder="Số điện thoại" />
+                    <label asp-for="Input.Number" class="form-label"></label>
+                    <span asp-validation-for="Input.Number" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.StreetAddress" class="form-control" autocomplete="email" placeholder="Số nhà" />
+                    <label asp-for="Input.StreetAddress" class="form-label"></label>
+                    <span asp-validation-for="Input.StreetAddress" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.State" class="form-control" autocomplete="email" placeholder="Quận/Huyện" />
+                    <label asp-for="Input.State" class="form-label"></label>
+                    <span asp-validation-for="Input.State" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.City" class="form-control" autocomplete="email" placeholder="Tỉnh/Thành Phố" />
+                    <label asp-for="Input.City" class="form-label"></label>
+                    <span asp-validation-for="Input.City" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.PostalCode" class="form-control" autocomplete="email" placeholder="Mã Bưu Chính" />
+                    <label asp-for="Input.PostalCode" class="form-label"></label>
+                    <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+                </div>
+                <button type="submit" class="w-100 btn btn-lg mb-4" style="background-color:#4dabf7; color: white">Đăng ký</button>
+            </form>
+        </div>
+        <div class="col-md-5">
+            <img src="~/img/Đăng nhập.jpg" />
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

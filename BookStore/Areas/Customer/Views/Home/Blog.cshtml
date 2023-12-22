@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Blog>
+<section class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center pb-4">
+                <h2>Bài viết nổi bật</h2>
+            </div>
+            @foreach (var post in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <img src="@post.ImageUrl1" class="card-img-top" alt="..." style="object-fit:cover">
+                        <div class="card-body">
+                            <h5 class="card-title">@post.Title</h5>
+                            <p class="card-text">@post.Summary</p>
+                            <a asp-action="BlogDetail" class="btn btn-primary" asp-route-id="@post.Id">Tìm hiểu thêm thông tin</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

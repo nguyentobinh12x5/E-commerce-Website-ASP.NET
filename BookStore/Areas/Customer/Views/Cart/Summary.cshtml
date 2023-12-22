@@ -1,0 +1,132 @@
+﻿@model ShoppingCartVM
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Check Out</h4>
+                    <div class="breadcrumb__links">
+                        <a href="./index.html">Home</a>
+                        <a href="./shop.html">Shop</a>
+                        <span>Check Out</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <form method="post">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <h6 class="coupon__code">
+                            <span class="icon_tag_alt"></span> Mã giảm giá? <a href="#">
+                                Click here
+                            </a> nhập mã giảm giá
+                        </h6>
+                        <h6 class="checkout__title">Chi Tiết Hóa Đơn</h6>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>Last Name<span>*</span></p>
+                                    <input asp-for="OrderHeader.Name" class="form-control" />
+                                    <span asp-validation-for="OrderHeader.Name"
+                                          class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Địa chỉ<span>*</span></p>
+                            <input asp-for="OrderHeader.StreetAddress"
+                                   class="form-control" />
+                            <span asp-validation-for="OrderHeader.StreetAddress"
+                                  class="text-danger"></span>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Thành Phố/ Tỉnh<span>*</span></p>
+                            <input asp-for="OrderHeader.City" class="form-control" />
+                            <span asp-validation-for="OrderHeader.City"
+                                  class="text-danger"></span>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Quận/Huyện<span>*</span></p>
+                            <input asp-for="OrderHeader.State" class="form-control" />
+                            <span asp-validation-for="OrderHeader.State"
+                                  class="text-danger"></span>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Mã Bưu Chính<span>*</span></p>
+                            <input asp-for="OrderHeader.PostalCode"
+                                   class="form-control" />
+                            <span asp-validation-for="OrderHeader.PostalCode"
+                                  class="text-danger"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>Số Điện Thoại<span>*</span></p>
+                                    <input asp-for="OrderHeader.PhoneNumber"
+                                           class="form-control" />
+                                    <span asp-validation-for="OrderHeader.PhoneNumber"
+                                          class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Lưu ý<span>*</span></p>
+                            <input type="text"
+                                   placeholder="Ghi chú đơn hàng. Ví dụ như phương thức giao hàng...">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="checkout__order">
+                            <h4 class="order__title">Your order</h4>
+                            <div class="checkout__order__products">Product <span>Total</span></div>
+                            <ul class="checkout__total__products">
+                               @foreach( var details in Model.ShoppingCartList)
+                                {
+                                    <li>
+                                        @details.Product.Title - Quantity: @details.Count<span>
+                                            @((details.Product.Price *
+                                              details.Count)) VNĐ
+                                        </span>
+                                    </li>
+                                }
+                            </ul>
+                            <ul class="checkout__total__all">
+                                <li>Subtotal <span>@Model.OrderHeader.OrderTotal.ToString("#,##0") VNĐ</span></li>
+                                <li>Total <span>@Model.OrderHeader.OrderTotal.ToString("#,##0") VNĐ</span></li>
+                            </ul>
+                            <p>
+                                Tất cả thông tin cá nhân và thanh toán của bạn sẽ được mã hóa. Vậy nên cứ yên tâm mua hàng tại TheGroomne nhé!
+                            </p>
+                            <p style="color: maroon; font-size: 14px">
+                                Thời gian dự tính giao hàng:
+                                @DateTime.Now.AddDays(7).ToShortDateString() -
+                                @DateTime.Now.AddDays(14).ToShortDateString()
+                            </p>
+                            <div>
+                                <p>Lựa chọn Phương thức thanh toán<span>*</span></p>
+                                <div class="form-check">
+                                    <input type="radio" name="paymentMethod" value="payNow" checked class="form-check-input">
+                                    <label class="form-check-label" for="paymentMethod">Thanh toán khi nhận hàng</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" value="stripe">
+                                    <label class="form-check-label" for="paymentMethod">Thanh toán stripe</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="site-btn">Đặt Hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

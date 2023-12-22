@@ -1,0 +1,74 @@
+﻿@model OrderHeader
+
+
+<div class="modal-header">
+    <h5 class="modal-title">THÔNG TIN ĐƠN HÀNG</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">THÔNG TIN ĐƠN HÀNG #@Model.Id</h4>
+            <div class="table-responsive">
+                <table class="product-info-table m-t-20">
+                    <tbody>
+                        <tr>
+                            <td>ID:</td>
+                            <td class="text-dark font-weight-semibold">#@Model.Id</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày mua hàng:</td>
+                            <td>@Model.OrderDate</td>
+                        </tr>
+                        <tr>
+                            <td>Khách hàng:</td>
+                            <td>@Model.Name</td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại:</td>
+                            <td>@Model.PhoneNumber</td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ:</td>
+                            <td>@Model.StreetAddress</td>
+                        </tr>
+                        <tr>
+                            <td>Tổng tiền:</td>
+                            <td>@Model.OrderTotal.ToString("#,##0") VNĐ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="id" value="@Model.Id" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Chọn trạng thái đơn hàng</label>
+                            <select class="form-control" name="OrderStatus" asp-items="@ViewBag.StatusList" required>
+                                <option value="0" disabled selected>Chọn trạng thái đơn hàng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Chọn trạng thái thanh toán</label>
+                            <select class="form-control" name="PaymentStatus" asp-items="@ViewBag.PaymentList" required>
+                                <option value="0" disabled selected>Chọn trạng thái thanh toán</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success">Lưu thay đổi</button>
+            </form>
+        </div>
+
+    </div>
+</div>

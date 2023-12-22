@@ -1,0 +1,134 @@
+﻿@{
+    var status = Context.Request.Query["status"];
+    var pending = "text-primary";
+    var inprocess = "text-primary";
+    var approved = "text-primary";
+    var shipped = "text-primary";
+    var canceled = "text-primary";
+    var refunded = "text-primary";
+    switch (status) {
+        case "pending":
+            pending = "active text-white bg-primary";
+            break;
+        case "inprocess":
+            inprocess = "active text-white bg-primary";
+            break;
+        case "approved":
+            approved = "active text-white bg-primary";
+            break;
+        case "shipped":
+            shipped = "active text-white bg-primary";
+            break;
+        case "canceled":
+            canceled = "active text-white bg-primary";
+            break;
+        case "refunded":
+            refunded = "active text-white bg-primary";
+            break;
+    }
+}
+@model IEnumerable<OrderHeader>
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Danh sách đơn hàng</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-12">
+                <div class="d-md-flex justify-content-between">
+                    <div class="d-flex">
+                        <div class="m-b-10 m-r-15">
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="pending" class="btn @pending">Chưa giải quyết</a>
+                        </div>
+                        <div class="m-b-10 m-r-15">
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="inprocess" class="btn @inprocess">Trong quá trình</a>
+                        </div>
+                        <div class="m-b-10 m-r-15">
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="approved" class="btn @approved">Chấp nhận</a>
+                        </div>
+                        <div class="m-b-10 m-r-15">
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="shipped" class="btn @shipped">Đang giao</a>
+                        </div>
+                        <div class="m-b-10 m-r-15">
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="canceled" class="btn @canceled">Hủy</a>
+                        </div>
+                        <div class="m-b-10 m-r-15">
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="refuned" class="btn @refunded">Hoàn Tiền</a>
+                        </div>
+                    </div>
+                    <div class="m-b-10 m-r-15">
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="Order" asp-action="Upsert"><i class="anticon anticon-plus-circle m-r-5"></i><span>Thêm danh mục</span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Khác hàng</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Thanh Toán</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                @*<td>@item.OrderDetails.Sum(x =>x.TotalMoney).Value.ToString("#,##0") VNĐ</td>*@
+                                <td>@item.OrderTotal.ToString("#,##0") VNĐ</td>
+                                <td>@item.OrderStatus</td>
+                                <td>@item.PaymentStatus</td>
+                                <td>
+                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="Order" asp-action="Detail" asp-route-orderId="@item.Id">Chi tiết</a>
+                                    <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="Order" asp-action="Status" asp-route-id="@item.Id">Trạng thái</a>
+                                    <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="Order" asp-action="Upsert" asp-route-id="@item.Id">Chỉnh sửa</a>
+                                    <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="Order" asp-action="Delete" asp-route-orderId="@item.Id">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminOrders" asp-action="Index" />
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-header" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $('#modal-header').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var url = button.attr("href");
+            var modal = $(this);
+            // note that this will replace the content of modal-content ever time the modal is opened
+            modal.find('.modal-content').load(url);
+        });
+    </script>
+
+}
+
+
