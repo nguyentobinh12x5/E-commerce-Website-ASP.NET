@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore", "BookStore\BookStore.csproj", "{ED5C22B8-A32B-44CC-B294-2CBE2D508CB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce", "BookStore\Ecommerce.csproj", "{ED5C22B8-A32B-44CC-B294-2CBE2D508CB4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.DataAccess", "Bulky.DataAcesss\BookStore.DataAccess.csproj", "{2CCF490D-AF9F-4D16-B20D-3FD76B97CF15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.DataAccess", "Bulky.DataAcesss\Ecommerce.DataAccess.csproj", "{2CCF490D-AF9F-4D16-B20D-3FD76B97CF15}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Models", "BookStore.Models\BookStore.Models.csproj", "{D6B6059A-7A9B-404D-8AE1-989F5C57C2AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Models", "BookStore.Models\Ecommerce.Models.csproj", "{D6B6059A-7A9B-404D-8AE1-989F5C57C2AD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Utility", "BookStore.Utility\BookStore.Utility.csproj", "{90D9A563-A598-4692-9E4B-620A648B26BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Utility", "BookStore.Utility\Ecommerce.Utility.csproj", "{90D9A563-A598-4692-9E4B-620A648B26BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
