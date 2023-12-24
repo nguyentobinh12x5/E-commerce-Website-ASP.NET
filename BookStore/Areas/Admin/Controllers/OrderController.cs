@@ -51,7 +51,7 @@ namespace BookStore.Areas.Admin.Controllers
                     objOrderList = objOrderList.Where(u => u.OrderStatus == SD.StatusApproved);
                     break;
                 case "cancelled":
-                    objOrderList = objOrderList.Where(u => u.PaymentStatus == SD.StatusCancelled);
+                    objOrderList = objOrderList.Where(u => u.OrderStatus == SD.StatusCancelled);
                     break;
                 case "refunded":
                     objOrderList = objOrderList.Where(u => u.OrderStatus == SD.StatusRefunded);
@@ -73,6 +73,7 @@ namespace BookStore.Areas.Admin.Controllers
             });
             ViewBag.UserList = UserList;
             ViewBag.StatusList = StatusList;
+            ViewBag.PaymentList = PaymentList;
             if (id == null || id == 0)
             {
                 return View();

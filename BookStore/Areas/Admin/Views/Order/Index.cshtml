@@ -4,8 +4,9 @@
     var inprocess = "text-primary";
     var approved = "text-primary";
     var shipped = "text-primary";
-    var canceled = "text-primary";
+    var cancelled = "text-primary";
     var refunded = "text-primary";
+    var all = "text-primary";
     switch (status) {
         case "pending":
             pending = "active text-white bg-primary";
@@ -19,11 +20,14 @@
         case "shipped":
             shipped = "active text-white bg-primary";
             break;
-        case "canceled":
-            canceled = "active text-white bg-primary";
+        case "cancelled":
+            cancelled = "active text-white bg-primary";
             break;
         case "refunded":
             refunded = "active text-white bg-primary";
+            break;
+        case "all":
+            all = "active text-white bg-primary";
             break;
     }
 }
@@ -52,13 +56,16 @@
                             <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="approved" class="btn @approved">Chấp nhận</a>
                         </div>
                         <div class="m-b-10 m-r-15">
-                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="shipped" class="btn @shipped">Đang giao</a>
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="shipped" class="btn @shipped">Đã giao</a>
                         </div>
                         <div class="m-b-10 m-r-15">
-                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="canceled" class="btn @canceled">Hủy</a>
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="cancelled" class="btn @cancelled">Hủy</a>
                         </div>
                         <div class="m-b-10 m-r-15">
-                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="refuned" class="btn @refunded">Hoàn Tiền</a>
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="refunded" class="btn @refunded">Hoàn tiền</a>
+                        </div>
+                        <div class="m-b-10 m-r-15">
+                            <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-status="all" class="btn @all">Tất cả</a>
                         </div>
                     </div>
                     <div class="m-b-10 m-r-15">

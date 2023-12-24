@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="row product__filter">
-            @foreach (var product in Model)
+            @foreach (var product in Model.Take(8))
             {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="row product__filter">
-            @foreach (var product in Model.Where(u => u.CategoryId ==5))
+            @foreach (var product in Model.Where(u => u.CategoryId ==5).Take(4))
             {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
@@ -126,7 +126,7 @@
             </div>
         </div>
         <div class="row product__filter">
-            @foreach (var product in Model.Where(u => u.CategoryId == 2))
+            @foreach (var product in Model.Where(u => u.CategoryId == 2).Take(4))
             {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
@@ -220,7 +220,7 @@
             </div>
         </div>
         <div class="row product__filter">
-            @foreach (var product in Model.Where(u => u.CategoryId == 3))
+            @foreach (var product in Model.Where(u => u.CategoryId == 3).Take(4))
             {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">

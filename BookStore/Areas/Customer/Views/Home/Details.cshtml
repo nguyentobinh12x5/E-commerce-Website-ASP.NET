@@ -1,19 +1,27 @@
 ﻿@model ShoppingCart
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Chi tiết sản phẩm</h4>
+                    <div class="breadcrumb__links">
+                        <a asp-area="Customer" asp-controller="Home" asp-action="Index">Trang Chủ</a>
+                        <a asp-area="Customer" asp-controller="Home" asp-action="Shop">Cửa Hàng</a>
+                        <span>Chi tiết sản phẩm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Shop Details Section Begin -->
 <form method="post">
 <input hidden asp-for="ProductId" />
 <section class="shop-details">
     <div class="product__details__pic bg-white pb-0 mb-0">
         <div class="container">
-                <div class="row text-start mb-4">
-                    <div class="col-lg-12">
-                        <div class="product__details__breadcrumb">
-                            <a asp-area="Customer" asp-controller="Home" asp-action="Index">Trang Chủ</a>
-                            <a href="./shop.html">Shop</a>
-                            <span>Product Details</span>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-lg-2 d-flex justify-content-end">
                         <ul class="nav nav-tabs" role="tablist" style="width:92px; height: 92px">
@@ -186,7 +194,7 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <h5>@product.Price.ToString("c")</h5>
+                            <h5>@product.Price.ToString("#,##0") VNĐ</h5>
                             <div class="product__color__select">
                                 <label for="pc-1">
                                     <input type="radio" id="pc-1">
