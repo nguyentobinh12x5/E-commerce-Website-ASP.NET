@@ -77,7 +77,7 @@
                                             <td><a target="_blank" href="@url">@item.Product.Title</a></td>
                                             <td>@item.Count</td>
                                             <td>@item.Price.ToString("#,##0") VNĐ</td>
-                                            <td>@((item.Count * item.Price).ToString("#,##0")) VNĐ</td>
+                                            <td>@((item.Count * item.Price).ToString("#,##0")) VND</td>
                                         </tr>
                                         i++;
                                     }
@@ -90,7 +90,7 @@
                     <div class="row m-t-30 lh-1-8">
                         <div class="col-sm-12">
                             <div class="float-right text-right">
-                                <h3><span class="font-weight-semibold text-dark">Tổng tiền :</span>@Model.OrderHeader.OrderTotal.ToString("#,##0") VNĐ</h3>
+                                <h3><span class="font-weight-semibold text-dark">Tổng tiền :</span>@Model.OrderHeader.OrderTotal.ToString("#,##0") VND</h3>
                             </div>
                         </div>
                     </div>

@@ -10,11 +10,11 @@ namespace BookStore.Models
 
         [Required]
         [DisplayName("Category Name")]
-        [MaxLength(30, ErrorMessage = "Name must be under 30 Letters")]
+        [MaxLength(30, ErrorMessage = "Tên bắt buộc phải dưới 30 ký tự")]
         public string Name { get; set; }
 
         [DisplayName("Display Order")]
-        [Range(1, 100, ErrorMessage = "Name must be under 30 Letters")]
+        [Range(1, 100, ErrorMessage = "Thứ tự phải dưới 100")]
         public int DisplayOrder { get; set; }
     }
 }

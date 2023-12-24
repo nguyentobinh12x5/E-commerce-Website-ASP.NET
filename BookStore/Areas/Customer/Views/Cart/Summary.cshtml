@@ -92,16 +92,21 @@
                                @foreach( var details in Model.ShoppingCartList)
                                 {
                                     <li>
-                                        @details.Product.Title<span>
-                                            @((details.Product.Price *
-                                              details.Count)) VNĐ
-                                        </span>
+                                        <div class="d-flex justify-content-between">
+                                            <p>
+                                                @details.Product.Title
+                                            </p>
+                                            <p>
+                                                @((details.Product.Price * details.Count)) VNĐ
+                                            </p>
+                                        </div>
+
                                     </li>
                                 }
                             </ul>
                             <ul class="checkout__total__all">
-                                <li>Tạm tính <span>@Model.OrderHeader.OrderTotal.ToString("#,##0") VNĐ</span></li>
-                                <li>Tổng cộng <span>@Model.OrderHeader.OrderTotal.ToString("#,##0") VNĐ</span></li>
+                                <li>Tạm tính <span>@Model.OrderHeader.OrderTotal.ToString("#,##0") VND</span></li>
+                                <li>Tổng cộng <span>@Model.OrderHeader.OrderTotal.ToString("#,##0") VND</span></li>
                             </ul>
                             <p>
                                 Tất cả thông tin cá nhân và thanh toán của bạn sẽ được mã hóa. Vậy nên cứ yên tâm mua hàng tại TheGroomne nhé!

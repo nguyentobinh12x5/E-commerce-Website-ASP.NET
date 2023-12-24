@@ -30,7 +30,7 @@ namespace BookStore.Areas.Customer.Controllers
         {
             Product selectedProduct = _db.Products.Find(productId);
             List<Product> relatedProducts = _db.Products
-            .Where(p => p.CategoryId == selectedProduct.CategoryId && p.Id != productId)
+            .Where(p => p.CategoryId == selectedProduct.CategoryId && p.Id != productId).Take(4)
             .ToList();
             ViewBag.RelatedProducts = relatedProducts;
             ShoppingCart cart = new()

@@ -43,7 +43,7 @@
                                             </div>
                                             <div class="product__cart__item__text">
                                                 <h6>@item.Product.Title</h6>
-                                                <h5>@item.Product.PriceDiscount.ToString("#,##0") VNĐ</h5>
+                                                <h5>@item.Product.PriceDiscount.ToString("#,##0") VND</h5>
                                             </div>
                                         </td>
                                         <td class="quantity__item">
@@ -53,7 +53,7 @@
                                                 <a asp-action="Plus" asp-route-cartId="@item.Id" class="text-black"><i class="bi bi-chevron-right"></i></a>
                                             </div>
                                         </td>
-                                        <td class="cart__price">@((item.Count * item.Product.PriceDiscount).ToString("#,##0")) VNĐ</td>
+                                        <td class="cart__price">@((item.Count * item.Product.PriceDiscount).ToString("#,##0")) VND</td>
                                         <td class="cart__close">
                                             <a asp-action="Remove" asp-route-cartId="@item.Id">
                                                 <i class="fa fa-close bg-light"></i>
@@ -81,15 +81,15 @@
                 <div class="cart__discount">
                     <h6>Mã giảm giá</h6>
                     <form action="#">
-                            <input type="text" placeholder="Mã giảm giá" class="py-2 px-4 rounded border border-secondary-subtle">
-                        <button type="submit" class="btn btn-primary py-2 px-4 text-uppercase">Apply</button>
+                        <input type="text" placeholder="Mã giảm giá" class="py-2 px-4 rounded border border-secondary-subtle">
+                        <button type="submit" class="btn btn-primary text-uppercase">Apply</button>
                     </form>
                 </div>
                 <div class="cart__total bg-light">
                     <h6>Giỏ hàng</h6>
                     <ul>
-                            <li>Tạm tính <span class="text-black">@Model.OrderHeader.OrderTotal.ToString("#,##0") VNĐ</span></li>
-                            <li>Tổng <span class="text-black">@Model.OrderHeader.OrderTotal.ToString("#,##0") VNĐ</span></li>
+                            <li>Tạm tính <span class="text-black">@Model.OrderHeader.OrderTotal.ToString("#,##0") VND</span></li>
+                            <li>Tổng <span class="text-black">@Model.OrderHeader.OrderTotal.ToString("#,##0") VND</span></li>
                     </ul>
                         <a asp-action="Summary" class="primary-btn">Thanh Toán</a>
                 </div>
