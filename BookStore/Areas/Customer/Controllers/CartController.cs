@@ -91,6 +91,7 @@ namespace BookStore.Areas.Customer.Controllers
             // Stripe Payment 
             if(paymentMethod == "stripe")
             {
+                //thay đổi domain
                 var domain = "https://localhost:7163/";
                 var options = new SessionCreateOptions
                 {
