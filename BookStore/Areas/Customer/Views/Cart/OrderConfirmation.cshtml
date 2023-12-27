@@ -1,11 +1,14 @@
 ﻿@model int 
-<div class="container">
+<div class="container spad">
     <div class="row pt-4">
         <div class="col-12 text-center">
-            <h3 class="text-sm">
+            <h3 class="text-sm" style="padding-bottom: 15px">
                 Chúc mừng bạn đã đặt hàng thành công!
             </h3>
             <p>Mã đơn hàng của bạn là: @Model</p>
+            <div>
+                <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-primary">Tiếp tục mua hàng</a>
+            </div>
         </div>
     </div>
 </div>
